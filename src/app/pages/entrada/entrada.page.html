@@ -1,9 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>entrada</ion-title>
+  <ion-toolbar text-center color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Entrada de Materiales</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+    <ion-select placeholder="Bodega">
+        <ion-select-option value="f">Bolsa</ion-select-option>
+        <ion-select-option value="m">Bulto</ion-select-option>
+        <ion-select-option value="m">Galon</ion-select-option>
+        <ion-select-option value="m">Unidad</ion-select-option>
+      </ion-select>
+      <ion-input type="text" placeholder="Nom. Entrada"></ion-input>
+      <ion-button class="ion-margin-top" color="primary" expand="block">Cargar</ion-button>
+      <ion-grid>
+      <ion-row>
+          <table style="width: 100%; border: 1px solid #000;">
+            <thead>
+              <th>Producto</th>
+              <th>Unidad</th>
+              <th>Cantidad</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-row>
+        <ion-button class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>
+      </ion-grid>
 </ion-content>

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar text-center>
+  <ion-toolbar text-center color="primary">
     <ion-title>BuildSoft - INICIO</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,24 +13,24 @@
           </ion-item>
 
           
-              <ion-button class="ion-margin-top" color="primary" expand="block">
+              <ion-button (click)="onOpenView(1)" class="ion-margin-top" color="primary" expand="block">
                 Requisición
               </ion-button>
           
-              <ion-button class="ion-margin-top" color="primary" expand="block">
+              <ion-button (click)="onOpenView(2)" class="ion-margin-top" color="primary" expand="block">
                 Entrada de Materiales
               </ion-button>
           
-              <ion-button class="ion-margin-top" color="primary" expand="block">
+              <ion-button (click)="onOpenView(3)" class="ion-margin-top" color="primary" expand="block">
                 Salida de Materiales
               </ion-button>
           
           
-              <ion-button class="ion-margin-top" color="primary" expand="block">
+              <ion-button (click)="onOpenView(4)" class="ion-margin-top" color="primary" expand="block">
                 Existencia en Bodega
               </ion-button>
 
-              <ion-button class="ion-margin-top" color="primary" expand="block">
+              <ion-button (click)="onOpenView(5)" class="ion-margin-top" color="primary" expand="block">
                   Salir
                 </ion-button>
           
