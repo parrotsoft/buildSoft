@@ -18,20 +18,10 @@
       <ion-button class="ion-margin-top" color="primary" expand="block">Cargar</ion-button>
       <ion-grid>
       <ion-row>
-          <table style="width: 100%; border: 1px solid #000;">
-            <thead>
-              <th>Producto</th>
-              <th>Unidad</th>
-              <th>Cantidad</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-            </tbody>
-          </table>
+          <ngx-datatable
+        [rows]="rows"
+        [columns]="columns">
+      </ngx-datatable>
         </ion-row>
         <ion-button class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>
       </ion-grid>
