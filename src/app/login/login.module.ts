@@ -1,3 +1,4 @@
+import { ManageDataService } from './../services/manage-data.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +22,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
+  providers: [
+    ManageDataService
+  ]
 })
 export class LoginPageModule {}

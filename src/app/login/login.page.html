@@ -24,13 +24,10 @@
                 </ion-item>
                 <ion-item>
                   <ion-label>CC</ion-label>
-                  <ion-select placeholder="Selecciones uno">
-                    <ion-select-option value="f">Mej. de vivienda</ion-select-option>
-                    <ion-select-option value="m">Arroyo la 21</ion-select-option>
-                    <ion-select-option value="m">Arroyo la felicidad</ion-select-option>
+                  <ion-select placeholder="Selecciones uno" formControlName="centroCosto">
+                    <ion-select-option *ngFor="let row of centrosCosto" value="{{ row.id }}">{{ row.description }}</ion-select-option>
                   </ion-select>
                 </ion-item>
-
                 <ion-button class="ion-margin-top" color="primary" expand="block" 
                 [disabled]="!formLogin.valid" (click)="onLogin()">
                   ENTRAR

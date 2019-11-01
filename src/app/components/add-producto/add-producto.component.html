@@ -1,28 +1,25 @@
 <ion-card>
-    <ion-card-header>
-        <ion-card-subtitle>Agregar</ion-card-subtitle>
-        <ion-card-title>Productos</ion-card-title>
-    </ion-card-header>
+  <ion-card-header>
+    <ion-card-subtitle>Agregar</ion-card-subtitle>
+    <ion-card-title>Productos</ion-card-title>
+  </ion-card-header>
 
-<ion-card-content>
-<ion-grid>
-    
-  <ion-row class="ion-justify-content-center">
-      <ion-col size-lg="4" size-sm="8">
-        <ion-input type="text" placeholder="Nombre del producto"></ion-input>
-        <ion-select placeholder="Unidad de Medida">
-            <ion-select-option value="f">Bolsa</ion-select-option>
-            <ion-select-option value="m">Bulto</ion-select-option>
-            <ion-select-option value="m">Galon</ion-select-option>
-            <ion-select-option value="m">Unidad</ion-select-option>
+  <ion-card-content>
+    <ion-grid>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-lg="4" size-sm="8">
+          <ion-input [(ngModel)]="data.producto" type="text" placeholder="Nombre del producto"></ion-input>
+          <ion-select [(ngModel)]="data.unidad" placeholder="Unidad de Medida">
+            <ion-select-option *ngFor="let row of unidades" value="{{ row.description }}">{{ row.description }}
+            </ion-select-option>
           </ion-select>
-          <ion-input type="number" placeholder="Cantidad"></ion-input>
+          <ion-input [(ngModel)]="data.cantidad" type="number" placeholder="Cantidad"></ion-input>
           <ion-button class="ion-margin-top" color="primary" (click)="onAgregar()" expand="block">Agregar</ion-button>
-          <ion-button class="ion-margin-top" color="warning" (click)="onCancelar()"expand="block">Cancelar</ion-button>
-      </ion-col>
-  </ion-row>
+          <ion-button class="ion-margin-top" color="warning" (click)="onCancelar()" expand="block">Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
 
-</ion-grid>
-</ion-card-content>
+    </ion-grid>
+  </ion-card-content>
 </ion-card>
-

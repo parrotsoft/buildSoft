@@ -11,26 +11,26 @@
     <ion-grid>
         <ion-row class="ion-justify-content-center">
           <ion-col size-lg="4" size-sm="8">
-            <ion-label>Centro de Costos: XXXXXX-XXXXX</ion-label>
+            <ion-label>C.C: <strong>{{ centroCosto }}</strong></ion-label>
             <ion-button (click)="onAddProducto()" class="ion-margin-top" color="primary" expand="block">Adicionar Productos</ion-button>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <table style="width: 100%; border: 1px solid #000;">
+        <ion-row *ngIf="productos.length > 0">
+          <table>
             <thead>
               <th>Producto</th>
-              <th>Unidad</th>
+              <th>Unidad.</th>
               <th>Cantidad</th>
             </thead>
             <tbody>
-              <tr>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
+              <tr *ngFor="let row of productos">
+                <td>{{ row.producto }}</td>
+                <td>{{ row.unidad }}</td>
+                <td>{{ row.cantidad }}</td>
               </tr>
             </tbody>
           </table>
         </ion-row>
-        <ion-button (click)="onProcesar()" class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>
+        <ion-button *ngIf="productos.length > 0" (click)="onProcesar()" class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>
       </ion-grid>
 </ion-content>

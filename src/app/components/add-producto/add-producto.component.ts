@@ -1,3 +1,4 @@
+import { ManageDataService } from './../../services/manage-data.service';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductoComponent implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  data: any = {};
+  unidades: any = [];
 
-  ngOnInit() {}
+  constructor(public modalController: ModalController, private manageDataService: ManageDataService) { }
+
+  ngOnInit() {
+    this.unidades = this.manageDataService.getUnidades();
+  }
 
   onAgregar() {
-    this.modalController.dismiss();
+    this.manageDataService.addProducto(this.data);
+    this.modalController.dismiss({
+      reload: true
+    });
   }
 
   onCancelar() {
