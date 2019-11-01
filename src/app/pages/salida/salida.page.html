@@ -8,35 +8,32 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-select placeholder="Bodega">
-        <ion-select-option value="f">Bolsa</ion-select-option>
-        <ion-select-option value="m">Bulto</ion-select-option>
-        <ion-select-option value="m">Galon</ion-select-option>
-        <ion-select-option value="m">Unidad</ion-select-option>
+    <ion-select placeholder="Bodega" [(ngModel)]="data.bodega">
+        <ion-select-option *ngFor="let row of bodegas" value="{{ row.description }}">{{ row.description }}</ion-select-option>
       </ion-select>
-      <ion-select placeholder="Tipo Salida">
-          <ion-select-option value="f">Bolsa</ion-select-option>
-          <ion-select-option value="m">Bulto</ion-select-option>
-          <ion-select-option value="m">Galon</ion-select-option>
-          <ion-select-option value="m">Unidad</ion-select-option>
+      <ion-select placeholder="Tipo Salida" [(ngModel)]="data.TipoSalida">
+          <ion-select-option *ngFor="let row of tipoSalida" value="{{ row.description }}">{{ row.description }}</ion-select-option>
         </ion-select>
-        <ion-grid>
-            <ion-row>
-                <table style="width: 100%; border: 1px solid #000;">
-                  <thead>
-                    <th>Producto</th>
-                    <th>Unidad</th>
-                    <th>Cantidad</th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>xxxx</td>
-                      <td>xxxx</td>
-                      <td>xxxx</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ion-row>
-            </ion-grid>
-            <ion-button class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>        
+        <ion-button [disabled]="!(data.bodega && data.TipoSalida)" class="ion-margin-top" color="primary" expand="block" (click)="onAgregar()">Agregar Producto</ion-button>        
+        <div *ngIf="productos.length > 0">
+          <ion-grid>
+              <ion-row>
+                  <table>
+                      <thead>
+                        <th>Producto</th>
+                        <th>Unidad.</th>
+                        <th>Pedido</th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of productos">
+                          <td>{{ row.producto }}</td>
+                          <td>{{ row.unidad }}</td>
+                          <td>{{ row.pedido }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </ion-row>
+          </ion-grid>
+          <ion-button class="ion-margin-top" color="primary" expand="block" (click)="onProcesar()">Procesar</ion-button>        
+        </div>
 </ion-content>

@@ -1,3 +1,4 @@
+import { ManageDataService } from './../../services/manage-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExistenciasPage implements OnInit {
 
-  constructor() { }
+  productos: any = [];
+  bodegas: any = [];
+  bodega: number;
+
+  constructor(private manageDataService: ManageDataService) { }
 
   ngOnInit() {
+    this.bodegas = this.manageDataService.getAllBodegas();
+  }
+
+  onCargar() {
+    switch (Number(this.bodega)) {
+      case 1:
+        this.productos = this.manageDataService.getAllProductosBodega1();
+        break;
+      case 2:
+        this.productos = this.manageDataService.getAllProductosBodega2();
+        break;
+      case 3:
+        this.productos = this.manageDataService.getAllProductosBodega3();
+        break;
+    }
   }
 
 }

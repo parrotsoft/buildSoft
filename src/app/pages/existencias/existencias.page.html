@@ -8,29 +8,25 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-select placeholder="Bodega">
-        <ion-select-option value="f">Bolsa</ion-select-option>
-        <ion-select-option value="m">Bulto</ion-select-option>
-        <ion-select-option value="m">Galon</ion-select-option>
-        <ion-select-option value="m">Unidad</ion-select-option>
+    <ion-select placeholder="Bodega" [(ngModel)]="bodega" (ionChange)="onCargar()">
+        <ion-select-option *ngFor="let row of bodegas" value="{{ row.id }}">{{ row.description }}</ion-select-option>
       </ion-select>
-      <ion-button class="ion-margin-top" color="primary" expand="block">Cargar</ion-button>      
-      <ion-grid>
+      <ion-grid *ngIf="productos.length > 0">
           <ion-row>
-              <table style="width: 100%; border: 1px solid #000;">
-                <thead>
-                  <th>Producto</th>
-                  <th>Unidad</th>
-                  <th>Cantidad</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>xxxx</td>
-                    <td>xxxx</td>
-                    <td>xxxx</td>
-                  </tr>
-                </tbody>
-              </table>
-            </ion-row>
-          </ion-grid>
+              <table>
+                  <thead>
+                    <th>Producto</th>
+                    <th>Unidad.</th>
+                    <th>Cantidad</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of productos">
+                      <td>{{ row.producto }}</td>
+                      <td>{{ row.unidad }}</td>
+                      <td>{{ row.cantidad }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </ion-row>
+        </ion-grid>
 </ion-content>

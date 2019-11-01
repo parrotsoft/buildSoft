@@ -15,7 +15,7 @@
             </ion-select-option>
           </ion-select>
           <ion-input [(ngModel)]="data.cantidad" type="number" placeholder="Cantidad"></ion-input>
-          <ion-button class="ion-margin-top" color="primary" (click)="onAgregar()" expand="block">Agregar</ion-button>
+          <ion-button [disabled]="!(data.producto && data.unidad && data.cantidad)" class="ion-margin-top" color="primary" (click)="onAgregar()" expand="block">Agregar</ion-button>
           <ion-button class="ion-margin-top" color="warning" (click)="onCancelar()" expand="block">Cancelar</ion-button>
         </ion-col>
       </ion-row>

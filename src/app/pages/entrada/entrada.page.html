@@ -8,21 +8,32 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-select placeholder="Bodega">
-        <ion-select-option value="f">Bolsa</ion-select-option>
-        <ion-select-option value="m">Bulto</ion-select-option>
-        <ion-select-option value="m">Galon</ion-select-option>
-        <ion-select-option value="m">Unidad</ion-select-option>
-      </ion-select>
-      <ion-input type="text" placeholder="Nom. Entrada"></ion-input>
-      <ion-button class="ion-margin-top" color="primary" expand="block">Cargar</ion-button>
-      <ion-grid>
-      <ion-row>
-          <ngx-datatable
-        [rows]="rows"
-        [columns]="columns">
-      </ngx-datatable>
-        </ion-row>
-        <ion-button class="ion-margin-top" color="primary" expand="block">Procesar</ion-button>
-      </ion-grid>
+  <ion-select placeholder="Bodega" [(ngModel)]="data.bodega">
+    <ion-select-option *ngFor="let row of bodegas" value="{{ row.description }}">{{ row.description }}
+    </ion-select-option>
+  </ion-select>
+  <ion-input type="number" [(ngModel)]="data.numEntrada" placeholder="Numero de entrada"></ion-input>
+  <ion-button [disabled]="!(data.bodega && data.numEntrada)" class="ion-margin-top" color="primary" expand="block" (click)="onCargar()">Cargar</ion-button>
+  <ion-grid *ngIf="productos.length > 0">
+    <ion-row>
+        <table>
+            <thead>
+              <th>Producto</th>
+              <th>Unidad.</th>
+              <th>Cantidad</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of productos">
+                <td>{{ row.producto }}</td>
+                <td>{{ row.unidad }}</td>
+                <td>{{ row.cantidad }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </ion-row>
+    <div *ngIf="productos.length > 0">
+        <ion-button class="ion-margin-top" color="primary" expand="block" (click)="onProcesar()">Procesar</ion-button>
+        <ion-button class="ion-margin-top" color="warning" expand="block" (click)="onCancelar()">Cancelar</ion-button>
+    </div>
+  </ion-grid>
 </ion-content>

@@ -1,3 +1,4 @@
+import { SelectProductoComponent } from './../../components/select-producto/select-producto.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SalidaPage]
+  declarations: [SalidaPage, SelectProductoComponent],
+  entryComponents: [ SelectProductoComponent ]
 })
 export class SalidaPageModule {}
