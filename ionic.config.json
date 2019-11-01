@@ -1,5 +1,7 @@
 {
   "name": "BuildSoft",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
